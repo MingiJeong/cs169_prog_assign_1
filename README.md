@@ -11,7 +11,7 @@ I am pleased to take this class taught by Prof.Alberto Quattrini Li.
 2) Make sure you have "rosbot_webui" package in your catkin_ws git clone https://github.com/husarion/rosbot_webui.git
 3) Make sure you have "husarion_ros" package in your catkin_ws git clone https://github.com/husarion/husarion_ros.git
 4) catkin_make
-5) After you connect(ssh) to the Rosbot 2.0, source ~/catkin_ws/devel/setup.bash
+5) After you connect(ssh) to the Rosbot 2.0, source ~/catkin_ws/devel/setup.bash (afterwards recommended : rospack profile)
 6) run command to make your python scripts executable e.g (chmod +x ~/catkin_ws/src/cs169_prog_assign_1/scripts/task1.py)
 
 # Execute
