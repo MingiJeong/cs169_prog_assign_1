@@ -1,4 +1,4 @@
-# cs169cs169_prog_assign_1
+# cs169_prog_assign_1
 
 This git repository is made for Dartmouth Robotics CS 69/169 Robotics perception course' programming assignment.
 Works are coded by Mingi Jeong, 1st year Ph.D. Students in Robotics/Computer Science at Dartmouth.
