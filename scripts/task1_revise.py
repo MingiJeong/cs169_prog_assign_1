@@ -15,7 +15,7 @@ class Rosbot:
     def __init__(self):
         self.publisher = rospy.Publisher("/cmd_vel", Twist, queue_size=1)
         self.subscriber = rospy.Subscriber("/pose",PoseStamped, self.pose_callback)
-        self.rate = rospy.Rate(5)
+        self.rate = rospy.Rate(10)
         self.initial_time = None
         self.pose = PoseStamped()
 
