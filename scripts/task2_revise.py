@@ -19,7 +19,7 @@ class Rosbot:
         self.initial_time = None
         self.pose = PoseStamped()
 
-    def distance_traveller(self, dist_input):
+    def distance_traveller(self):
         vel_msg = Twist()
         vel_msg.angular.z = 0
 
@@ -30,7 +30,7 @@ class Rosbot:
                 self.initial_time = timer()
             else:
                 vel_msg.linear.x = 0.2 # making rosbot's velocty as 0.2 m/s
-                print("going (current time)", self.initial_time)
+                print("going (current time)", timer()-self.initial_time)
                 self.publisher.publish(vel_msg)
                 self.rate.sleep()
                 if timer() - self.initial_time >= 5:
@@ -55,7 +55,7 @@ def main():
     Rosbot2 = Rosbot()
     # initial position subscriber by rospy.wait_for_message
     #Rosbot2.update_pose_msg()
-    Rosbot2.distance_traveller(dist_input)
+    Rosbot2.distance_traveller()
 
 if __name__ =="__main__":
     rospy.init_node("task1")
