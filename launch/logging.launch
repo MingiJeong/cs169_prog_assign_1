@@ -9,6 +9,7 @@
      /camera/depth/image/compressed
      /camera/depth/image/compressed/parameter_descriptions
      /camera/depth/image/compressed/parameter_updates
+     /camera/depth/image_raw/compressed/
      /camera/depth/image_raw/compressed/parameter_descriptions
      /camera/depth/image_raw/compressed/parameter_updates
      /camera/depth/image_rect/compressed/parameter_descriptions
