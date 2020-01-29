@@ -26,7 +26,7 @@ class Rosbot:
         while not rospy.is_shutdown():
             # if the distance travelled is less than the user input, robot keeps going as per velocity 2m/s
             # I made the velocity linear x command as 2m/s constant no matter what we input values
-            if self.initial_time == None
+            if self.initial_time == None:
                 self.initial_time = timer()
             else:
                 vel_msg.linear.x = 0.2 # making rosbot's velocty as 0.2 m/s
