@@ -1,5 +1,5 @@
 <launch>
-<arg name="logging_delay" default="3.5" />
+<!-- arg name="logging_delay" default="3.5" /-->
 <arg name="bag.name" default="/home/husarion/CS169-mg/"/>
 <arg name="bag.topics"
      default="
@@ -64,6 +64,7 @@
      /tf
      /tf_static
 "/>
+<node pkg="rosbag" type="record" name="logging" args="--output-prefix=$(arg bag.name) $(arg bag.topics)" />
 
-  <node pkg="rosbag" type="record" name="logging" args="--output-prefix=$(arg bag.name) $(arg bag.topics)" launch-prefix="bash -c 'sleep $(arg logging_delay); $0 $@' " />
+<!-- node pkg="rosbag" type="record" name="logging" args="output-prefix=$(arg bag.name) $(arg bag.topics)" launch-prefix="bash -c 'sleep $(arg logging_delay); $0 $@' " /-->
 </launch>

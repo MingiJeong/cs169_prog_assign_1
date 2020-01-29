@@ -16,6 +16,6 @@
     <include file="$(find astra_launch)/launch/astra.launch" />
 
     <!-- Main Controller -->
-    <node pkg="cs169_prog_assign_1" type="task1.py" name="main_controller" output="screen" launch-prefix="bash -c 'sleep $(arg task_start_delay); $0 $@' " />
+    <node pkg="cs169_prog_assign_1" type="task1_revise.py" name="main_controller" output="screen" launch-prefix="bash -c 'sleep $(arg task_start_delay); $0 $@' " />
 
 </launch>
