@@ -30,7 +30,7 @@ class Rosbot:
                 self.initial_time = timer()
             else:
                 vel_msg.linear.x = 0.2 # making rosbot's velocty as 0.2 m/s
-                print "going (current time)" self.initial_time
+                print("going (current time)", self.initial_time)
                 self.publisher.publish(vel_msg)
                 self.rate.sleep()
                 if timer() - self.initial_time >= 5:
