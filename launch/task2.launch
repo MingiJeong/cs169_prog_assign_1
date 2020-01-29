@@ -1,6 +1,7 @@
 <launch>
 
     <arg name="task_start_delay" default="3.0" />
+    <arg name="camera_start_delay" default="1.0" />
 
     <!-- TF -->
     <node name="laser_tf" pkg="tf" type="static_transform_publisher" args="0 0 0 3.14 0 0 base_link laser_frame 100" />
@@ -14,7 +15,7 @@
     </node>
 
     <!-- RGBD camera node -->
-    <!-- include file="$(find astra_launch)/launch/astra.launch" /-->
+    <include file="$(find astra_launch)/launch/astra.launch" launch-prefix="bash -c 'sleep $(arg camera_start_delay); $0 $@' "/>
 
     <!-- Main Controller -->
     <node pkg="cs169_prog_assign_1" type="task2_revise.py" name="main_controller" output="screen" launch-prefix="bash -c 'sleep $(arg task_start_delay); $0 $@' "/>
