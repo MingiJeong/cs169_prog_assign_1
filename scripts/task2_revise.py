@@ -14,10 +14,8 @@ from timeit import default_timer as timer
 class Rosbot:
     def __init__(self):
         self.publisher = rospy.Publisher("/cmd_vel", Twist, queue_size=1)
-        self.subscriber = rospy.Subscriber("/pose",PoseStamped, self.pose_callback)
-        self.rate = rospy.Rate(10)
+        self.rate = rospy.Rate(5)
         self.initial_time = None
-        self.pose = PoseStamped()
 
     def distance_traveller(self):
         vel_msg = Twist()
@@ -39,14 +37,6 @@ class Rosbot:
                     self.publisher.publish(vel_msg)
                     self.rate.sleep()
                     rospy.signal_shutdown("Stopped!")
-
-
-    def pose_callback(self, msg):
-        self.pose = msg
-
-    def update_pose_msg(self):
-        update_pose_msg = rospy.wait_for_message("/pose", PoseStamped)
-        self.initial_pose = update_pose_msg.pose.position.x
 
 
 def main():
