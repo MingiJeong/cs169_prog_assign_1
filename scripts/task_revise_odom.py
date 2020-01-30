@@ -13,9 +13,9 @@ from timeit import default_timer as timer
 # define Rosbot class containing publisher and subscriber in task1 node
 class Rosbot:
     def __init__(self):
-        self.publisher = rospy.Publisher("/cmd_vel", Twist, queue_size=1)
+        self.publisher = rospy.Publisher("/cmd_vel", Twist, queue_size=10)
         self.subscriber = rospy.Subscriber("/pose",PoseStamped, self.pose_callback)
-        self.rate = rospy.Rate(1)
+        self.rate = rospy.Rate(5)
         self.initial_time = None
         self.initial_pose = None
         self.pose = PoseStamped()
@@ -28,13 +28,12 @@ class Rosbot:
         while not rospy.is_shutdown():
             # if the distance travelled is less than the user input, robot keeps going as per velocity 2m/s
             # I made the velocity linear x command as 2m/s constant no matter what we input values
-            current_distance = math.sqrt((self.pose.position.x - self.initial_pose.position.x)**2 + (self.pose.position.y - self.initial_pose.position.y)**2)
+            current_distance = math.sqrt((self.pose.pose.position.x - self.initial_pose.pose.position.x)**2 + (self.pose.pose.position.y - self.initial_pose.pose.position.y)**2)
             if current_distance < distance_to_go:
                 vel_msg.linear.x = 0.2
-                print("going forward: distance_to_go", distance_to_go)
+                print("going forward: current distance", current_distance)
                 self.publisher.publish(vel_msg)
                 self.rate.sleep()
-                distance_to_go -= vel_msg.linear.x
 
             else:
                 vel_msg.linear.x = 0.0 # making rosbot's velocty as 0.2 m/s
