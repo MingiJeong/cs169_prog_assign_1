@@ -14,7 +14,7 @@ from timeit import default_timer as timer
 class Rosbot:
     def __init__(self):
         self.publisher = rospy.Publisher("/cmd_vel", Twist, queue_size=1)
-        self.rate = rospy.Rate(5)
+        self.rate = rospy.Rate(1)
         self.initial_time = None
 
     def distance_traveller(self):
