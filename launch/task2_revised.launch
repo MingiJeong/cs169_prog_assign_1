@@ -18,7 +18,7 @@
     <include file="$(find astra_launch)/launch/astra.launch">
         <arg name="depth_processing" value="true"/>
         <arg name="depth_registered_processing" value="true"/>
-    </include-->
+    </include>
 
     <!-- Main Controller -->
     <node pkg="cs169_prog_assign_1" type="task_revise.py" name="main_controller" output="screen" launch-prefix="bash -c 'sleep $(arg task_start_delay); $0 $@' "/>
