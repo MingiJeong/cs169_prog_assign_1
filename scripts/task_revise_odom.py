@@ -54,7 +54,7 @@ def main():
     # dist_input = float(input("Distance for Rosbot to travel? (unit: meters):"))
     Rosbot2 = Rosbot()
     # initial position subscriber by rospy.wait_for_message
-    #Rosbot2.update_pose_msg()
+    Rosbot2.update_pose_msg()
     Rosbot2.distance_traveller()
 
 if __name__ =="__main__":
